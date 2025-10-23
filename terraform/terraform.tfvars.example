@@ -1,0 +1,20 @@
+﻿# ========================================
+# Terraform Variables - Example
+# Copie para terraform.tfvars e ajuste
+# ========================================
+
+aws_region   = "us-east-1"
+project_name = "techstore"
+environment  = "dev"
+
+vpc_cidr = "10.0.0.0/16"
+
+availability_zones = [
+  "us-east-1a",
+  "us-east-1b"
+]
+
+public_subnet_cidrs = [
+  "10.0.1.0/24",
+  "10.0.2.0/24"
+]
