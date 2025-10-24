@@ -5,7 +5,7 @@
 variable "aws_region" {
   description = "Regiao AWS para criar recursos"
   type        = string
-  default     = "us-east-1"
+  default     = "sa-east-1"  # Sao Paulo
 }
 
 variable "project_name" {
@@ -29,11 +29,39 @@ variable "vpc_cidr" {
 variable "availability_zones" {
   description = "Lista de Availability Zones"
   type        = list(string)
-  default     = ["us-east-1a", "us-east-1b"]
+  default     = ["sa-east-1a", "sa-east-1b"]  # Sao Paulo AZs
 }
 
 variable "public_subnet_cidrs" {
   description = "CIDRs para subnets publicas"
   type        = list(string)
   default     = ["10.0.1.0/24", "10.0.2.0/24"]
+}
+
+# ========================================
+# Compute Variables
+# ========================================
+
+variable "instance_type" {
+  description = "Tipo de instancia EC2"
+  type        = string
+  default     = "t3.micro"  # Free Tier
+}
+
+variable "asg_min_size" {
+  description = "Numero minimo de instancias"
+  type        = number
+  default     = 1
+}
+
+variable "asg_max_size" {
+  description = "Numero maximo de instancias"
+  type        = number
+  default     = 3
+}
+
+variable "asg_desired_capacity" {
+  description = "Numero desejado de instancias"
+  type        = number
+  default     = 1
 }
